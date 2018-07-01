@@ -4,7 +4,14 @@ session_start();
 
 $timezone = date_default_timezone_set("Asia/Tokyo");
 
-$con = mysqli_connect("localhost", "root", "", "social"); //DB接続
+$servername = getenv('IP');
+$username = getenv('C9_USER');
+$password = "";
+$database = "social";
+$dbport = 3306;
+
+// $con = mysqli_connect("localhost", "root", "", "social"); //DB接続
+$con = mysqli_connect($servername, $username, $password, $database, $dbport); //DB接続
 
 if(mysqli_connect_errno()){
     // 接続エラー表示
